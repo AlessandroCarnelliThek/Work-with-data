@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, NavLink, Switch, Route, useParam } from 'react-router-dom'
+
+import Loading from './components/Loading.js';
+import ListaUtenti from './components/ListaUtenti.js'
+
+
+
+
+//differenze tra link e navlink : è una questione di stile, nav link ha uno stile già impostato....controllare
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="header">Work With DATA</header>
+
+        <div className="list">
+          <ListaUtenti />
+        </div>
+
+        <div className="main">
+          
+          <Loading />
+        </div>
+
+        <footer className="footer"></footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
