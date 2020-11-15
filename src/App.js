@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import ListaUtenti from './components/ListaUtenti.js'
 import ListaPosts from './components/ListaPosts.js'
 
+import Intro from './Intro.js';
 
-
-
-
-//differenze tra link e navlink : è una questione di stile, nav link ha uno stile già impostato....controllare
 
 function App() {
 
   const [utenti, setUtenti] = useState([]);
-  const [posts, setPosts] = useState([]);
 
   function getUserData() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(responce => responce.json())
       .then(data => setUtenti(data))
-
   }
-  function getPostData() {
-    let userId = 2;
-    fetch("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
-      .then(responce => responce.json())
-      .then(data => setPosts(data))
-
-  }
-
   useEffect(getUserData, [])
-  useEffect(getPostData, [])
 
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <header className="header">Work With DATA</header>
 
@@ -42,12 +28,19 @@ function App() {
         </div>
 
         <div className="main">
-          <ListaPosts data={posts} />
+
+          <Route exact path="/" component={Intro} />
+          <Route path="/:id" component={ListaPosts} />
+
+
         </div>
 
-        <footer className="footer"></footer>
+        <footer className="footer">
+          <div className="button__back" ><Link className="Link button__back" to="/">GO BACK</Link></div>
+
+        </footer>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

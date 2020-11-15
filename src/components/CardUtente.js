@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 function CardUtente(props) {
     const { username, name, email, id } = props.data;
-    let to = "/posts/" + id;
-
     return (
-        <Link to={to}>
+        <Link className="Link" to={`/${id}`}>
+            
             <div className="card__user">
                 <div className="card__user__content">
 

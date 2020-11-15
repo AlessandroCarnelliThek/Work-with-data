@@ -26,6 +26,10 @@ border-bottom: 2px solid  white;
 border-top: 2px solid  rgb(14, 54, 214);
 
 }
+.Link, Link:visited{
+  text-decoration: none;
+  color:black;
+}
 /*------------------------------------
   APP LAYOUT
 ------------------------------------*/
@@ -70,8 +74,9 @@ border-top: 2px solid  rgb(14, 54, 214);
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding:5px 50px;
+  padding:5px 50px 0px 50px;
 }
+
 .footer{
   grid-area: f;
   background-color: rgb(14, 54, 214);
@@ -80,6 +85,18 @@ border-top: 2px solid  rgb(14, 54, 214);
 }
 
 
+.button__back{
+  background-color: rgb(14, 54, 214);
+  color:white;
+ width:100%;
+  border-radius: 10px;
+  margin:0;
+  padding:10px 200px 10px 15px;
+  font-size: 40px;
+}
+.main__intro{
+  height:90vh;
+}
 .list__title{
   display: flex;
   justify-content: center;
@@ -191,7 +208,7 @@ border-top: 2px solid  rgb(14, 54, 214);
   background-color: rgb(14, 54, 214);
   color:  rgb(255, 255, 255);
 
-  transform: scale(1.05);
+  transform: scale(1.02);
 
 
 }
