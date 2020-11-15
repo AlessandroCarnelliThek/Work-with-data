@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import BackBar from './components/BackBar.js';
 import ListaUtenti from './components/ListaUtenti.js'
 import ListaPosts from './components/ListaPosts.js'
 
-import Intro from './Intro.js';
+import Intro from './components/Intro.js';
 
 
 function App() {
 
-  const [utenti, setUtenti] = useState([]);
-
-  function getUserData() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(responce => responce.json())
-      .then(data => setUtenti(data))
-  }
-  useEffect(getUserData, [])
-
   return (
     <Router>
       <div className="App">
-        <header className="header">Work With DATA</header>
+        <header className="header">
+          <Route path="/" component={BackBar}></Route>
+        </header>
 
         <div className="list">
-          <ListaUtenti data={utenti} />
+          <ListaUtenti />
         </div>
 
         <div className="main">
@@ -32,12 +26,10 @@ function App() {
           <Route exact path="/" component={Intro} />
           <Route path="/:id" component={ListaPosts} />
 
-
         </div>
 
         <footer className="footer">
-          <div className="button__back" ><Link className="Link button__back" to="/">GO BACK</Link></div>
-
+          <BackBar />
         </footer>
       </div>
     </Router>

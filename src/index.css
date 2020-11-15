@@ -39,7 +39,7 @@ border-top: 2px solid  rgb(14, 54, 214);
 
   display: grid;
   grid-template-columns: 220px auto;
-  grid-template-rows: 60px auto 90px;
+  grid-template-rows: 90px auto 90px;
   grid-template-areas: 
   'h h'
   'l m'
@@ -48,63 +48,84 @@ border-top: 2px solid  rgb(14, 54, 214);
 }
 .header {
   grid-area: h;
-  color: rgb(255, 255, 255);
-  background-color: rgb(14, 54, 214);
-  font-size: 30px;
-  text-align: center;
-  padding-right: 50px;;
-  display:flex;
-  align-items: center;
-  justify-content: flex-end;
 
 }
 .list {
   grid-area: l;
 
-  width:100%;
-
   display:flex;
   flex-flow: column nowrap;
   align-content: space-between;
   justify-content: flex-start;
+
 }
 .main {
   grid-area: m;
+
   display:flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
   padding:5px 50px 0px 50px;
+
 }
 
 .footer{
   grid-area: f;
-  background-color: rgb(14, 54, 214);
-
 
 }
-
-
-.button__back{
+/*------------------------------------
+  HEADER & FOOTER - BACKBAR
+------------------------------------*/
+.backbar{
   background-color: rgb(14, 54, 214);
-  color:white;
- width:100%;
-  border-radius: 10px;
-  margin:0;
-  padding:10px 200px 10px 15px;
+
+  color: rgb(255, 255, 255);
+
+  height:100%;
   font-size: 40px;
+  padding: 0px 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
 }
+.backbar__title{
+  font-size: 50px;
+  font-weight: 400;
+
+}
+.backbar__button{
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  height:100%;
+
+  display:flex;
+  align-items: center;
+
+}
+
+.backbar__button:hover{
+  transform: scale(1.1);
+  transition: .2s linear;
+
+}
+/*------------------------------------
+  MAIN - INTRO
+------------------------------------*/
 .main__intro{
-  height:90vh;
+  height:80vh;
+
 }
 .list__title{
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding:25px 0px;
+  padding:30px 0px;
 
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 500;
 }
 /*------------------------------------
@@ -124,6 +145,7 @@ border-top: 2px solid  rgb(14, 54, 214);
   box-shadow: 2px 2px 5px rgba(0,0,0,.5);
   overflow: hidden;
 }
+
 .card__user__content {
   width:100%;
   padding:15px 20px;
@@ -170,6 +192,7 @@ border-top: 2px solid  rgb(14, 54, 214);
   border: none;
   border-radius: 10px;
   margin-bottom: 20px;
+  max-width: 800px;
 
 
   display:flex;
@@ -178,6 +201,7 @@ border-top: 2px solid  rgb(14, 54, 214);
   transition: .2s ease-out;
   overflow: hidden;
 }
+
 .card__post__id{
   font-size: 12px;
   background-color: rgb(14, 54, 214);
@@ -192,15 +216,17 @@ border-top: 2px solid  rgb(14, 54, 214);
 }
 .card__post__content{
   width:100%;
-  padding:15px 20px;
+  padding:20px 20px;
 }
 .card__post__content__title{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
+  margin-bottom:10px;
 }
-
 .card__post__content__body {
   width:100%;
+  margin-top:10px;
+
 
 }
 
@@ -208,8 +234,7 @@ border-top: 2px solid  rgb(14, 54, 214);
   background-color: rgb(14, 54, 214);
   color:  rgb(255, 255, 255);
 
-  transform: scale(1.02);
-
+  transform: scale(1.1);
 
 }
 /*------------------------------------
@@ -219,10 +244,6 @@ border-top: 2px solid  rgb(14, 54, 214);
 
   width:88px;
   height:88px;
-
- 
-
-
 
   position: absolute;
   top:45%;

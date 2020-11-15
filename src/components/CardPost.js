@@ -9,6 +9,7 @@ function CardPost(props) {
                 <div className="card__post__id">{id}</div>
                 <div className="card__post__content">
                     <div className="card__post__content__title">{title}</div>
+                    <hr/>
                     <div className="card__post__content__body">{body}</div>
                 </div>
             </div>

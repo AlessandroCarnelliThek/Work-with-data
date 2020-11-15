@@ -17,26 +17,18 @@ function ListaPosts(props) {
 
     }, [UserId])
 
-
-
-
-
-
+    
     if (posts < 1) {
         return <Loading />
     } else {
         return (
             <div>
-                <div className="list__title">
-                    <div >User id: #{UserId}</div>
 
-                </div>
-
+                <div className="list__title">User id: #{UserId}</div>
 
                 {posts.map((post) => {
                     return <CardPost key={post.id} data={post} />
                 })}
-
 
             </div>)
     }
