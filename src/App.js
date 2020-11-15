@@ -1,8 +1,9 @@
-import React from 'react';
-import { BrowserRouter, NavLink, Switch, Route, useParam } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom'
 
-import Loading from './components/Loading.js';
 import ListaUtenti from './components/ListaUtenti.js'
+import ListaPosts from './components/ListaPosts.js'
+
 
 
 
@@ -11,18 +12,37 @@ import ListaUtenti from './components/ListaUtenti.js'
 
 function App() {
 
+  const [utenti, setUtenti] = useState([]);
+  const [posts, setPosts] = useState([]);
+
+  function getUserData() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(responce => responce.json())
+      .then(data => setUtenti(data))
+
+  }
+  function getPostData() {
+    let userId = 2;
+    fetch("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
+      .then(responce => responce.json())
+      .then(data => setPosts(data))
+
+  }
+
+  useEffect(getUserData, [])
+  useEffect(getPostData, [])
+
   return (
     <BrowserRouter>
       <div className="App">
         <header className="header">Work With DATA</header>
 
         <div className="list">
-          <ListaUtenti />
+          <ListaUtenti data={utenti} />
         </div>
 
         <div className="main">
-          
-          <Loading />
+          <ListaPosts data={posts} />
         </div>
 
         <footer className="footer"></footer>

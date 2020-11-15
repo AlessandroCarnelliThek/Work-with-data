@@ -1,23 +1,17 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 
-import CardUtente from './CardUtente.js'
+import CardUtente from './CardUtente.js';
 
-function ListaUtenti() {
-
-    const [utenti, setUtenti] = useState([]);
-
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(responce => responce.json())
-            .then(data => setUtenti(data))
-    }, []) // le parentesi quadre fanno si che il caricamento venga eseguito una volta sola
+function ListaUtenti(props) {
+    
+    const utenti = props.data;
 
     return (
         <div className='lista-utenti'>
-            {utenti.map((utente, index) => {
-                return <CardUtente key={index} utente={utente} />
+
+            {utenti.map((utente) => {
+                return <CardUtente key={utente.id} data={utente} />
             })}
         </div>)
 }
-
 export default ListaUtenti;

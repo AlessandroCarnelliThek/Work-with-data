@@ -21,8 +21,10 @@ code {
 
 }
 hr {
-border-top: 2px solid  rgb(14, 54, 214);
+border: none;
 border-bottom: 2px solid  white;
+border-top: 2px solid  rgb(14, 54, 214);
+
 }
 /*------------------------------------
   APP LAYOUT
@@ -68,7 +70,7 @@ border-bottom: 2px solid  white;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding:25px;
+  padding:5px 50px;
 }
 .footer{
   grid-area: f;
@@ -76,10 +78,22 @@ border-bottom: 2px solid  white;
 
 
 }
+
+
+.list__title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding:25px 0px;
+
+  font-size: 30px;
+  font-weight: 500;
+}
 /*------------------------------------
-  APP COMPONENT - CARD
+  APP COMPONENT - CARD__USER
 ------------------------------------*/
-.card {
+.card__user {
   background-color:  rgb(255, 255, 255);
 
   border-bottom: 3px solid rgb(14, 54, 214);
@@ -93,41 +107,91 @@ border-bottom: 2px solid  white;
   box-shadow: 2px 2px 5px rgba(0,0,0,.5);
   overflow: hidden;
 }
-.card__content {
+.card__user__content {
   width:100%;
   padding:15px 20px;
 
 }
-.card__content__title{
+.card__user__content__username{
   font-size: 18px;
   font-weight: 500;
 }
-.card__content__subtitle{
+.card__user__content__name{
   font-size: 12px;
 
 }
-.card__content__data{
+.card__user__content__data{
   font-size: 9px;
   margin-top: 10px;
 }
-.card__id {
+.card__user__id {
   background-color: rgb(14, 54, 214);
   color:  rgb(255, 255, 255);
   
   width:35px;
   font-size: 20px;
 
-
   display:flex;
   align-items: center;
   justify-content: center;
 }
 
-.card:hover{
+.card__user:hover{
   background-color: rgb(14, 54, 214);
   color:  rgb(255, 255, 255);
 
   transform: rotateZ(12deg) translateX(50px) scale(1.5);
+
+}
+/*------------------------------------
+  APP COMPONENT - CARD__POST
+------------------------------------*/
+.card__post {
+  background-color:  rgb(255, 255, 255);
+  box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+
+  display:flex;
+  flex-flow: row nowrap;
+
+  transition: .2s ease-out;
+  overflow: hidden;
+}
+.card__post__id{
+  font-size: 12px;
+  background-color: rgb(14, 54, 214);
+  color:  rgb(255, 255, 255);
+  
+  width:35px;
+  font-size: 20px;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__post__content{
+  width:100%;
+  padding:15px 20px;
+}
+.card__post__content__title{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card__post__content__body {
+  width:100%;
+
+}
+
+.card__post:hover{
+  background-color: rgb(14, 54, 214);
+  color:  rgb(255, 255, 255);
+
+  transform: scale(1.05);
 
 
 }
